@@ -36,15 +36,15 @@
 |--------------|--------|
 | 플레이어에 대한 데이터 | kills, deaths, assists, cs, kda ...|
 | 팀에 대한 데이터    | baron, dragon, turretkills, goldearned ...    |
-| 라인전 전후에대한 데이터 | csratio, dratio, gratio, kratio, vsratio ... |
+| 라인전 전후에대한 데이터 | diffdmg, diffgold, dratio, gratio, kratio ... |
 
 여기서 중요하게 고려되는 항목들은 다음과 같다. (10개 이상)
 
 | 데이터 속성         | 데이터의 의미                                    | 중요한 이유 |
 |----------------|--------------------------------------------|--------|
 | KDA            | Kill/Death/Assist의 비율                      |
-| DPD            | 챔피언에게 넣은 데미지 / 데스 수(데스가 0일경우 챔피언에게 넣은 데미지) |
 | Dealt          | 챔피언에게 넣은 데미지              |
+| Diffdpm        | DPM 격차                       |
 | Goldearned100  | 블루팀 총 획득 골드                                |
 | Goldearned200  | 레드팀 총 획득 골드                                |
 | Diffgold       | Gold 격차                                    |
