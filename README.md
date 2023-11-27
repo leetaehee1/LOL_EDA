@@ -82,7 +82,7 @@
 
 ## 3.1 모델 개요
 CNN을 썼다. 단순한 합산을 썼다.
-
+<!-- lol_data_extract_to_pickle.py(dataframe으로 만들기) -> tier_check.py(매치데이터 플래이상뽑고 pkl저장) -> data_norm.py(노말라이즈하기) -> make_input.py -> make_csv_data.py -> forcast_win.py(정확도 뽑기) -->
 ## 3.2 성능
 0825
 0915
