@@ -1,4 +1,8 @@
-# League Of Lengend 승패 예측 분석
+# <div align="center">League Of Lengend 승패 예측 분석</div>
+
+<div align="center> <img src = "https://github.com/leetaehee1/LOL_EDA/assets/79897716/8891e5d4-410d-4c18-ab37-92ce3d79f0f2" height=400> </div>
+
+
 
 # 1. 개 요
 리그 오브 레전드(이하 LOL)는 전 세계에서 수많은 게이머들에게 사랑받고 있는 대표적인 컴퓨터 게임으로, e-sports 산업에서는 이미 그 영향력을 확인할 수 있는 대표적인 콘텐츠로 자리매김하고 있다. 특히, 2022년 항저우 아시안 게임에서는 LOL이 정식 종목으로 채택되어 게임의 글로벌한 인지도와 영향력을 증명하였다.
@@ -74,8 +78,10 @@
 
 <details>
 <summary> 0825 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
-  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/4c77d9d0-0136-481a-8484-ca9be07a414f" width="900" height="550">
+  
+  ![0825플래이상](https://github.com/leetaehee1/LOL_EDA/assets/79897716/6dfbbf3b-1377-47f5-9542-68ddb52bae2d)
 </details>
+
 
 <details>
 <summary> 0915 게임 데이터 전체 티어별 분포 (표)</summary>    
@@ -84,7 +90,8 @@
 
 <details>
 <summary> 0915 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
-  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/2625b014-4924-4c86-a6ab-798094b45eb6" width="900" height="550">
+  
+  ![0917플래이상](https://github.com/leetaehee1/LOL_EDA/assets/79897716/5631c187-b40e-4df9-9b46-5187b9680153)
 </details>
 
 <details>
@@ -94,7 +101,9 @@
 
 <details>
 <summary> 0917 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
-  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/cc43b3ef-7c80-48c3-93d1-2ca1ed3c1e4e" width="900" height="550">
+  
+  ![0917플래이상1](https://github.com/leetaehee1/LOL_EDA/assets/79897716/35b89531-5ee3-4ad6-8f24-64c31e2cbcd8)
+
 </details>
 
 도출된 플래티넘 이상의 경기에 대해서, 핵심 데이터 속성으로 kda, dealt, dpm, dealttaken, kill_at14, diffdpm, diffgold, cs100/200, goldearned100/200, visionscore100/200, dragon100/200, baron100/200, tower100/200을 추출했다.     
@@ -102,7 +111,7 @@
 
 ## 2.4 데이터 프레임 설계
 
-탐색적 데이터 분석과 데이터 전처리를 통해 다음과 같은 데이터 프레임을 만들고자 한다.
+탐색적 데이터 분석과 데이터 전처리를 통해 예시로 다음과 같은 데이터 프레임을 만들고자 한다.
 
 | Id  | 팀  | 주요지표 | TOP | MID | JUG | SPT | ADC |
 |-----|-----|---------|-----|---|---|---|---|
@@ -120,23 +129,24 @@
 # 3. 승패예측 모델
 
 ## 3.1 모델 개요
-CNN을 썼다. 단순한 합산을 썼다.
-<!-- lol_data_extract_to_pickle.py(dataframe으로 만들기) -> tier_check.py(매치데이터 플래이상뽑고 pkl저장) -> data_norm.py(노말라이즈하기) -> make_input.py -> make_csv_data.py -> forcast_win.py(정확도 뽑기) -->
+
+각 팀의 특징 데이터를 합산하고 정규화한 후, 승패를 예측하는 단순한 규칙 기반 모델이다. 머신러닝 알고리즘 없이 간단한 비교만을 사용하므로 정확도가 한계가 있다. 더 정교한 예측을 위해서는 머신러닝 알고리즘을 활용해야 한다.
+
 ## 3.2 성능
 0825
 
-플래티넘이상
+플래티넘 이상 추출한 데이터
 예측이 실제 결과와 일치한 횟수 :  43701 전체 경기의 수 : 44962 정확도 :  0.9719540945687469
 
 0915
 
-플래티넘 이상
+플래티넘 이상 추출한 데이터 
 예측이 실제 결과와 일치한 횟수 : 27141, 전체 경기의 수 : 28209, 정확도 : 0.9621397426353292
 
-0927
+0917
 전체
 
-플래티넘 이상 
+플래티넘 이상 추출한 데이터 
 예측이 실제 결과와 일치한 횟수 : 23911, 전체 경기의 수 : 25208, 정확도 : 0.9485480799746112
 
 플래티넘 이상 4.5만건
