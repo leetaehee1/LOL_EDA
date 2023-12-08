@@ -12,12 +12,13 @@
 이번 프로젝트에 활용할 데이터는 온라인 게임 코칭 전문기업인 더매치랩(The Match LAB)에서 가공한 LOL 게임 데이터를 바탕으로 한다. 데이터는 2023년 8월 25일, 9월 15일, 9월 17일 각각 하루 동안 수집된 LOL 경기에 대한 세부 항목들로 구성되어 있다.
 
 ## 2.2 탐색적 데이터 분석
-리그 오브 레전드(League of Legends)의 티어 시스템은 플레이어들의 경기 결과를 기반으로 계급을 나누는 시스템이다. 주로 랭크 게임에서 사용되며 각 티어는 언랭크(U), 브론즈(B), 실버(S), 골드(G), 플래티넘(P), 다이아몬드(D), 마스터(M), 그랜드마스터(G) 그리고 챌린저(C)로 구성되어 있다.
+리그 오브 레전드(League of Legends)의 티어 시스템은 플레이어들의 경기 결과를 기반으로 계급을 나누는 시스템이다. 주로 랭크 게임에서 사용되며 각 티어는 언랭크(U), 아이언(I), 브론즈(B), 실버(S), 골드(G), 플래티넘(P), 에메랄드(E), 다이아몬드(D), 마스터(M), 그랜드마스터(G) 그리고 챌린저(C)로 구성되어 있다.
 
 <details>
 <summary> 티어에 대한 정보 (이미지)</summary>   
-  
-  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/89682883-4f01-4c51-8a99-2d4cbba5f9da" width="800" height="600">
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/36bfd42c-f00a-4e6d-bacb-3d5d5b30fa2c" width="1000" height="550">
+
+  + 아직 티어가 정해지지않은 **UnRanked(언랭크)** 또는 Unknown도 포함되어 있다.
 </details>
 
 
@@ -33,7 +34,7 @@
 | 원딜(ADC)    | 원딜은 바텀 라인에서 원거리 딜러로 활약하고, 후방에서 원거리 딜링을 통해 팀의 주요 딜량을 담당한다. |
 | 서포터(SPT)    | 서포터는 팀원을 지원하고 보호하며, 다양한 아이템과 스킬을 활용하여 팀의 생존 능력을 높이며, 시야확보, 이니시에이팅 같은 다양한 역할을 수행한다. |   
 
- *# 대부분은 이러한 역할을 가지고 있지만 아닌 경우도 존재하긴 한다.*
+ *# 거의 대부분은 이러한 역할을 가지고 있지만 아닌 경우도 존재하긴 한다.*
 
 제공된 데이터의 항목은 총 185개로 구성되어 있으며, 전반적으로 다음과 같은 내용으로 정리해볼 수 있다.
 
@@ -67,22 +68,54 @@
 
 
 <details>
-<summary> 전체 티어별 분포 (표)</summary>    
-  
+<summary> 0825 게임 데이터 전체 티어별 분포 (표)</summary>    
   <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/ea425786-5fc2-4701-989f-2e80a3783c26" width="900" height="550">
 </details>
 
-* 플래티넘 이상인 경기의 수
+<details>
+<summary> 0825 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/4c77d9d0-0136-481a-8484-ca9be07a414f" width="900" height="550">
+</details>
 
-도출된 플래티넘 이상의 경기에 대해서, 핵심 데이터 속성으로 ???, ???, ??? 등을 추출했다. 그 이유는 ~~~때문이다. 그리고 승패를 예측하는 것이기 때문에, 경기 데이터를 기준으로 데이터 속성별 정규화(normalize)를 수행했다. 
+<details>
+<summary> 0915 게임 데이터 전체 티어별 분포 (표)</summary>    
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/997596f0-59d4-4b0e-a588-11df7f1e25bc" width="900" height="550">
+</details>
+
+<details>
+<summary> 0915 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/2625b014-4924-4c86-a6ab-798094b45eb6" width="900" height="550">
+</details>
+
+<details>
+<summary> 0917 게임 데이터 전체 티어별 분포 (표)</summary>    
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/ac6556bb-0a39-4e2a-87d7-54107d80fafe" width="900" height="550">
+</details>
+
+<details>
+<summary> 0917 플래티넘 이상 게임 데이터 티어별 분포 (표)</summary>    
+  <img src="https://github.com/leetaehee1/LOL_EDA/assets/79897716/cc43b3ef-7c80-48c3-93d1-2ca1ed3c1e4e" width="900" height="550">
+</details>
+
+도출된 플래티넘 이상의 경기에 대해서, 핵심 데이터 속성으로 kda, dealt, dpm, dealttaken, kill_at14, diffdpm, diffgold, cs100/200, goldearned100/200, visionscore100/200, dragon100/200, baron100/200, tower100/200을 추출했다.     
+그 이유는 전반적인 활약도를 나타내는 **kda, dealt, dpm**과 초기에 높은 이점을 가져다줄 수 있는 **kill_at14**, 그리고 그 격차들을 나타내주는 **diffdpm, diffgold**와 경제적 성과와 연결되는 **cs, goldearned**, 시야 확보를 얼마나 햇는가를 나타내는 **visionscore**, 오브젝트를 얼마나 활용햇는가를 나타내는 **dragon, baron**, 마지막으로 맵컨트롤과 길을 얼마나 확보하엿는가를 나타내는 **tower** 모두 승패와 연관있기 때문이다. 그리고 승패를 예측하는 것이기 때문에, 경기 데이터를 기준으로 데이터 속성별 정규화(normalize)를 수행했다. 
 
 ## 2.4 데이터 프레임 설계
 
 탐색적 데이터 분석과 데이터 전처리를 통해 다음과 같은 데이터 프레임을 만들고자 한다.
 
-| Id  | 팀  | 주요지표 | TOP | JUG | MID | ADC | SPT |
+| Id  | 팀  | 주요지표 | TOP | MID | JUG | SPT | ADC |
 |-----|-----|---------|-----|---|---|---|---|
-| 고유번호 | Red/Blue | kda, dpd, ...| ... |...| ... |...| ... |
+| 고유번호 | 100 | kda  |       1.85714 |     3.0     | 4.6   |  2.75  |    1.5|
+|         |     |  dealt    |     27524 |   25655   | 18984  |  18807|    24173|
+ |        |     |  dpm     |    786.775 | 733.349  |542.658|  537.599 | 690.986|
+ |      |      |   dealttaken |   41685  |  24085  |  50921  |  27731  |  25374|
+  |      |     |   kill_at14    |     2     |   3     |   2    |    7   |     3|
+  |...|...|...|...|...|...|...|...|
+|  |200|  dragon   |         1    |    1   |     1    |    1   |     1|
+|    |     |       baron  |           0   |     0    |    0   |     0     |   0|
+|      |       |   tower     |        1    |    1     |   1      |  1   |     1|
+  
 
 # 3. 승패예측 모델
 
